@@ -17,12 +17,12 @@ class Db {
 	 * @return bool false on failure / mysqli MySQLi object instance on success
 	 */
 	public function connect() {
-		// Load configuration as an array. Use the actual location of your configuration file
-		// Put the configuration file outside of the document root
-		$config = parse_ini_file('./config.ini'); 
-
+		
 		// Try and connect to the database
 		if(!isset(self::$connection)) {
+			// Load configuration as an array. Use the actual location of your configuration file
+			// Put the configuration file outside of the document root
+			$config = parse_ini_file('./config.ini'); 
 			self::$connection = new mysqli('localhost',$config['username'],$config['password'],$config['dbname']);
 		}
 	
